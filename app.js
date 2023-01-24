@@ -16,7 +16,14 @@ try {
     console.log(error.message);
 }
 
-
+const staffRating = new mongoose.Schema({
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+    },
+    review: String
+});
 
 const staffSchema = new mongoose.Schema({
     name: {
@@ -25,16 +32,23 @@ const staffSchema = new mongoose.Schema({
     },
     position: String,
     age: Number,
-    salary:Number
+    salary:Number,
+    rating: staffRating
 })
 
 const Staff = mongoose.model("Staff", staffSchema);
 
+const Rating = mongoose.model("Rating", staffRating)
+
+const rate = new Rating({
+    rating: 7,
+    review: "very hard working and always listen to corrections"
+})
 const name_0 = new Staff({
     name: "Ibrahim",
     position: "senior Engineer",
     age: 48,
-    salary: 300000
+    salary: 300000,
 })
 // name_0.save();
 
@@ -45,7 +59,8 @@ const name_1 = new Staff({
     salary: 450000
 })
 
-Staff.updateOne({_id: "63d04365bf3429306cc0c03b"}, {name: "Fatimah"}, function(err){
+
+Staff.updateOne({_id: "63d04365bf3429306cc0c03b"}, {rating: rate}, function(err){
     if(!err){
         console.log("succesfully update document");
     }else{
