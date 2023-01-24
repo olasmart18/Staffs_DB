@@ -1,0 +1,23 @@
+{
+  "name": "staffs_db",
+  "version": "1.0.0",
+  "description": "creating a simple database using mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olasmart18/Staffs_DB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olasmart18/Staffs_DB/issues"
+  },
+  "homepage": "https://github.com/olasmart18/Staffs_DB#readme",
+  "dependencies": {
+    "mongoose": "^6.8.4"
+  }
+}
