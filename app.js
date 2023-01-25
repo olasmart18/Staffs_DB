@@ -41,14 +41,18 @@ const Staff = mongoose.model("Staff", staffSchema);
 const Rating = mongoose.model("Rating", staffRating)
 
 const rate = new Rating({
-    rating: 7,
-    review: "very hard working and always listen to corrections"
+    rating: 10,
+    review: "perfect and gentle ceo"
 })
+// rate.save();
+
+
 const name_0 = new Staff({
-    name: "Ibrahim",
-    position: "senior Engineer",
-    age: 48,
-    salary: 300000,
+    name: "Bisi",
+    position: "CEO",
+    age: 36,
+    salary: 2000000,
+    rating: rate
 })
 // name_0.save();
 
@@ -59,14 +63,22 @@ const name_1 = new Staff({
     salary: 450000
 })
 
-
-Staff.updateOne({_id: "63d04365bf3429306cc0c03b"}, {rating: rate}, function(err){
-    if(!err){
-        console.log("succesfully update document");
+Staff.deleteOne({name: "Bisi"}, function(err){
+    if (!err){
+        console.log("deleted");
     }else{
         console.log(err);
     }
 })
+
+
+// Staff.updateOne({_id: "63d04365bf3429306cc0c03b"}, {rating: rate}, function(err){
+//     if(!err){
+//         console.log("succesfully update document");
+//     }else{
+//         console.log(err);
+//     }
+// })
 
 // Staff.insertMany([name_0, name_1], function(err){
 //     if (err){
