@@ -63,13 +63,23 @@ const name_1 = new Staff({
     salary: 450000
 })
 
-Staff.deleteOne({name: "Bisi"}, function(err){
+Staff.find(function(err, found){
     if (!err){
-        console.log("deleted");
+        found.forEach(function(staff){
+            console.log(staff.name);
+        });
     }else{
-        console.log(err);
+        console.log("cant find");
     }
 })
+
+// Staff.deleteOne({name: "Bisi"}, function(err){
+//     if (!err){
+//         console.log("deleted");
+//     }else{
+//         console.log(err);
+//     }
+// })
 
 
 // Staff.updateOne({_id: "63d04365bf3429306cc0c03b"}, {rating: rate}, function(err){
